@@ -8,7 +8,7 @@ import com.slgerkamp.javadesiginpatterns.prototype.framework.Product;
  * 具体的な原型
  *
  */
-public class MessageBox implements Product{
+public class MessageBox extends Product{
 
 	private final char decochar;
 	
@@ -34,21 +34,6 @@ public class MessageBox implements Product{
 			System.out.print(decochar);
 		}
 		System.out.println();		
-	}
-
-	/* (非 Javadoc)
-	 * @see com.slgerkamp.javadesiginpatterns.prototype.framework.Product#craeteClone()
-	 */
-	public Product craeteClone() {
-		Product product = null;
-		
-		try {
-			product = (Product) clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		
-		return product;
 	}
 
 }

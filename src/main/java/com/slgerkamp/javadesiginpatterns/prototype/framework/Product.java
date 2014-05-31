@@ -6,19 +6,29 @@ package com.slgerkamp.javadesiginpatterns.prototype.framework;
  * 
  * クライアントが利用するインタフェースを提供する
  */
-public interface Product extends Cloneable{
+public abstract class Product implements Cloneable{
 
 	/**
 	 * 利用
 	 * 実装クラスが設定
 	 */
-	public void use(String string);
+	public abstract void use(String string);
 	
 	/**
 	 * インスタンスを複製する
 	 * 複製方法は実装クラスが設定
 	 * @return
 	 */
-	public Product craeteClone();
+	public Product craeteClone() {
+		Product product = null;
+		
+		try {
+			product = (Product) clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		
+		return product;
+	}
 	
 }
