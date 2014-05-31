@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class Manager {
 
-	private HashMap<String, Product> showcase = new HashMap<String, Product>();
+	private HashMap<PrototypeName, Product> showcase = new HashMap<PrototypeName, Product>();
 	
 	/**
 	 * Productのプロトタイプを登録する
@@ -20,8 +20,8 @@ public class Manager {
 	 * @param name:Productの名前
 	 * @param proto:Productの種類
 	 */
-	public void register(String name, Product proto){
-		showcase.put(name, proto);
+	public void register(PrototypeName protoname, Product proto){
+		showcase.put(protoname, proto);
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class Manager {
 	 * @param protoname:Productの名前
 	 * @return
 	 */
-	public Product create(String protoname){
+	public Product create(PrototypeName protoname){
 		Product p = showcase.get(protoname);
 		return p.craeteClone();
 	}
